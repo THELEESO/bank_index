@@ -54,8 +54,11 @@ nav.addEventListener('mouseout', navhandler.bind(1));
 
 // -----Nav----- Move to the sections
 document.querySelector('.nav__links').addEventListener('click', e => {
-  e.preventDefault();
-  if (e.target.classList.contains('nav__link')) {
+  if (
+    e.target.classList.contains('nav__link') &&
+    !e.target.classList.contains('nav__login')
+  ) {
+    e.preventDefault();
     const id = e.target.getAttribute('href');
     document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
   }
